@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "author": "21EC432 Revathi.C ECE",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -19.2, "left": -129.56, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": 42.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 63.8,
+      "left": 105.6,
+      "attrs": { "color": "blue", "xray": "1" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -55.2,
+      "left": 69,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -233.6,
+      "left": 72.8,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:2", "led1:A", "purple", [ "h96", "v-48" ] ],
+    [ "led1:C", "esp:GND.2", "magenta", [ "h-38", "v-86.4" ] ],
+    [ "esp:4", "btn1:1.l", "gold", [ "h115.2", "v-48" ] ],
+    [ "btn1:2.l", "esp:GND.1", "gold", [ "v105.8", "h-259.2", "v-67.2" ] ],
+    [ "esp:5", "bz1:2", "red", [ "h28.8", "v-57.6", "h96" ] ],
+    [ "esp:GND.2", "bz1:1", "red", [ "h19.2", "v19.2" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-38.4", "v240.2" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-105.6", "v211.2" ] ],
+    [ "lcd1:VCC", "esp:5V", "white", [ "h-220.8", "v374.5", "h9.6" ] ],
+    [ "esp:22", "lcd1:SCL", "green", [ "h86.4", "v-201.6", "h0", "v0", "h9.6" ] ]
+  ],
+  "dependencies": {}
+}
